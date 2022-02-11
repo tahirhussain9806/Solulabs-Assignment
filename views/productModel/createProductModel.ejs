@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product Model</title>
+</head>
+
+<body>
+    <h1>Create a Product Model</h1>
+    <form action="/productModel" method="post">
+        <li>
+            <label for="productName"><b>Product Name : </b></label>
+            <input type="text" id="productName" name="productName"></li>
+        <br>
+        <li><label for="qtyPerUnit"><b>Quantaty Per Unit : </b></label>
+            <input type="number" id="qtyPerUnit" name="qtyPerUnit"></li>
+        <br>
+        <li><label for="unitPrice"><b>Unit Price : </b></label>
+            <input type="number" id="unitPrice" name="unitPrice"></li>
+        <br>
+        <li>
+            <label for="unitInStock"><b>Unit In Stock</b></label>
+            <input type="number" id="unitInStock" name="unitInStock"></li>
+        <br>
+        <li><label for="discontinued"><b>Discontinued :</b></label>
+            <select name="discontinued" id="discontinued">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </li>
+        <br>
+        <li>
+            <label for="categoryId"><b>Category Id :</b></label>
+            <input type="number" id="categoryId" name="categoryId"></li>
+        <br>
+        <button>Create+</button>
+        <button onclick="document.location='/productModel'">Cancel</button>
+        <br>
+        <hr>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Model</title>
+</head>
+
+<body>
+    <section>
+        <h1>Product Model</h1>
+    </section>
+    <section>
+        <% for (let pmodel of productModel) { %>
+
+            <li>
+                <b>product Id :</b>
+                <%=pmodel.productId %>
+            </li>
+            <br>
+            <li>
+                <b>product Name : </b>
+                <%= pmodel.productName %>
+            </li>
+            <br>
+            <li>
+                <b> quantaty per unit : </b>
+                <%= pmodel.qtyPerUnit %>
+            </li>
+            <br>
+            <li>
+                <b> Unit Price : </b>
+                <%= pmodel.unitPrice %>
+            </li>
+            <br>
+            <li>
+                <b> Unit in Stock :  </b>
+                <%= pmodel.unitInStock %>
+            </li>
+            <br>
+            <li>
+                <b>Discontinued : </b>
+                <%= pmodel.discontinued %>
+            </li>
+            <br>
+            <li>
+                <b>Category Id :  </b>
+                <%= pmodel.categoryId %>
+            </li>
+            <br>
+            <button onclick="document.location='/productModel/<%= pmodel.productId%>'">Product Model Detals</button>
+            <hr>
+            <% } %>
+    </section>
+    <button onclick="document.location='/productModel/create'">Create a new Product Model</button>
+</body>
+
+</html>

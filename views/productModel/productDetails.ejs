@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+</head>
+
+<body>
+    <h1>Product Model Detailas </h1>
+    <li>
+        <b>Product id : </b>
+        <%=pModel.productId%>
+    </li>
+    <br>
+    <li>
+        <b>Product name : </b>
+        <%=pModel.productName%>
+    </li>
+    <br>
+    <li>
+        <b> quantaty per unit : </b>
+        <%= pModel.qtyPerUnit %>
+    </li>
+    <br>
+    <li>
+        <b> Unit Price : </b>
+        <%= pModel.unitPrice %>
+    </li>
+    <br>
+    <li>
+        <b> Unit in Stock :  </b>
+        <%= pModel.unitInStock %>
+    </li>
+    <br>
+    <li>
+        <b>Discontinued : </b>
+        <%= pModel.discontinued %>
+    </li>
+    <br>
+    <li>
+        <b>Category Id :  </b>
+        <%= pModel.categoryId %>
+    </li>
+    <br>
+    <button onclick="document.location='/productModel'">Cancel</button>
+    <hr>
+</body>
+
+</html>
