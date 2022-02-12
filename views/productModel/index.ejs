@@ -6,55 +6,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Model</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.min.js.map"></script>
 </head>
 
 <body>
-    <section>
-        <h1>Product Model</h1>
-    </section>
-    <section>
-        <% for (let pmodel of productModel) { %>
+    <div class="container-fluid">
+        <div class="container-md">
 
-            <li>
-                <b>product Id :</b>
-                <%=pmodel.productId %>
-            </li>
-            <br>
-            <li>
-                <b>product Name : </b>
-                <%= pmodel.productName %>
-            </li>
-            <br>
-            <li>
-                <b> quantaty per unit : </b>
-                <%= pmodel.qtyPerUnit %>
-            </li>
-            <br>
-            <li>
-                <b> Unit Price : </b>
-                <%= pmodel.unitPrice %>
-            </li>
-            <br>
-            <li>
-                <b> Unit in Stock :  </b>
-                <%= pmodel.unitInStock %>
-            </li>
-            <br>
-            <li>
-                <b>Discontinued : </b>
-                <%= pmodel.discontinued %>
-            </li>
-            <br>
-            <li>
-                <b>Category Id :  </b>
-                <%= pmodel.categoryId %>
-            </li>
-            <br>
-            <button onclick="document.location='/productModel/<%= pmodel.productId%>'">Product Model Detals</button>
-            <hr>
-            <% } %>
-    </section>
-    <button onclick="document.location='/productModel/create'">Create a new Product Model</button>
+            <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                    <p><strong>Product Model :</strong></p>
+                    <% for (let pmodel of productModel) { %>
+                        <dl class="row">
+                            <dt class="col-sm-3">product Id :</dt>
+                            <dd class="col-sm-9">
+                                <%=pmodel.productId %>
+                            </dd>
+
+                            <dt class="col-sm-3">product Name :</dt>
+                            <dd class="col-sm-9">
+                                <%= pmodel.productName %>
+                            </dd>
+                            <dt class="col-sm-3"> quantaty per unit :</dt>
+                            <dd class="col-sm-9">
+                                <%= pmodel.qtyPerUnit %>
+                            </dd>
+
+                            <dt class="col-sm-3">Unit Price : </dt>
+                            <dd class="col-sm-9">
+                                <%= pmodel.unitPrice %>
+                            </dd>
+
+                            <dt class="col-sm-3">Unit in Stock :</dt>
+                            <dd class="col-sm-9">
+                                <%= pmodel.unitInStock %>
+                            </dd>
+
+                            <dt class="col-sm-3">Discontinued :   </dt>
+                            <dd class="col-sm-9">
+                                <%= pmodel.discontinued %>
+                            </dd>
+                            <dt class="col-sm-3">
+                                Category Id :  
+                            </dt>
+                            <dd class="col-sm-9">
+                                <%= pmodel.categoryId %>
+                            </dd>
+
+                        </dl>
+                        <br>
+                        <button type="button" class="btn btn-info" onclick="document.location='/productModel/<%= pmodel.productId%>'">Product Model Detals</button>
+                        <hr>
+                        <% } %>
+                            <div class="col-md-12 text-center">
+                                <button type="button" class="btn btn-primary" onclick="document.location='/productModel/create'">Create a new Product Model</button>
+                            </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
 </body>
 
 </html>

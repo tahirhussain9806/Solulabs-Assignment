@@ -46,6 +46,11 @@
     </li>
     <br>
     <button onclick="document.location='/productModel'">Cancel</button>
+    <button onclick="document.location='/productModel/<%=pModel.productId%>/edit'">Edit</button>
+    <br><br>
+    <form method="POST" action="/productModel/<%=pModel.productId%>?_method=DELETE">
+        <button>Delete</button>
+    </form>
     <hr>
 </body>
 

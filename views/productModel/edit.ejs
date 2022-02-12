@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit product model</title>
+</head>
+<style>
+    textarea {
+        resize: none;
+    }
+</style>
+
+<body>
+    <h1>Product Model Edit</h1>
+</body>
+<form method="POST" action="/productModel/<%=pModel.productId%>?_method=PATCH">
+    <li>
+        <label for="productName"><b>Product Name : </b></label>
+        <textarea name="productName" id="productName">
+            <%=pModel.productName%>
+    </textarea>
+    </li>
+    <br>
+    <li><label for="qtyPerUnit"><b>Quantaty Per Unit : </b></label>
+        <textarea type="number" name="qtyPerUnit" id="qtyPerUnit">
+        <%=pModel.qtyPerUnit%>
+        </textarea>
+    </li>
+    <br>
+    <li><label for="unitPrice"><b>Unit Price : </b></label>
+        <textarea type="number" name="unitPrice" id="unitPrice">
+        <%=pModel.unitPrice%>
+        </textarea>
+    </li>
+    <br>
+    <li>
+        <label for="unitInStock"><b>Unit In Stock</b></label>
+        <textarea type="number" name="unitInStock" id="unitInStock">
+        <%=pModel.unitInStock%>
+        </textarea>
+    </li>
+    <br>
+    <li><label for="discontinued"><b>Discontinued :<%= pModel.discontinued%> </b> change it to :</label>
+        <select name="discontinued" id="discontinued">
+            
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+    </li>
+    <br>
+    <li>
+        <label for="categoryId"><b>Category Id :</b></label>
+        <textarea type="number" name="categoryId" id="categoryId">
+        <%=pModel.categoryId%>
+        </textarea>
+    </li>
+    <br>
+    <button>Save</button>
+    <br><br>
+
+</form>
+<button onclick="document.location='/productModel'">Cancel</button>
+
+<hr>
+
+</html>
