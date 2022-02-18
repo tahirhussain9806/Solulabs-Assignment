@@ -5,53 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>Produc/Category Details</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.min.js.map"></script>
 </head>
 
 <body>
-    <h1>Product Model Detailas </h1>
-    <li>
-        <b>Product id : </b>
-        <%=pModel.productId%>
-    </li>
-    <br>
-    <li>
-        <b>Product name : </b>
-        <%=pModel.productName%>
-    </li>
-    <br>
-    <li>
-        <b> quantaty per unit : </b>
-        <%= pModel.qtyPerUnit %>
-    </li>
-    <br>
-    <li>
-        <b> Unit Price : </b>
-        <%= pModel.unitPrice %>
-    </li>
-    <br>
-    <li>
-        <b> Unit in Stock :  </b>
-        <%= pModel.unitInStock %>
-    </li>
-    <br>
-    <li>
-        <b>Discontinued : </b>
-        <%= pModel.discontinued %>
-    </li>
-    <br>
-    <li>
-        <b>Category Id :  </b>
-        <%= pModel.categoryId %>
-    </li>
-    <br>
-    <button onclick="document.location='/productModel'">Cancel</button>
-    <button onclick="document.location='/productModel/<%=pModel.productId%>/edit'">Edit</button>
-    <br><br>
-    <form method="POST" action="/productModel/<%=pModel.productId%>?_method=DELETE">
-        <button>Delete</button>
-    </form>
-    <hr>
+    <div class="container-fluid">
+        <div class="container-md">
+            <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                    <p><strong>Product/Category Model Details :</strong></p>
+                    <dl class="row">
+                        <dt class="col-sm-3">product Id :</dt>
+                        <dd class="col-sm-9">
+                            <%=productD.productId %>
+                        </dd>
+
+                        <dt class="col-sm-3">product Name :</dt>
+                        <dd class="col-sm-9">
+                            <%= productD.productName %>
+                        </dd>
+                        <dt class="col-sm-3"> quantaty per unit :</dt>
+                        <dd class="col-sm-9">
+                            <%= productD.qtyPerUnit %>
+                        </dd>
+
+                        <dt class="col-sm-3">Unit Price : </dt>
+                        <dd class="col-sm-9">
+                            <%= productD.unitPrice %>
+                        </dd>
+
+                        <dt class="col-sm-3">Unit in Stock :</dt>
+                        <dd class="col-sm-9">
+                            <%= productD.unitInStock %>
+                        </dd>
+
+                        <dt class="col-sm-3">Discontinued :   </dt>
+                        <dd class="col-sm-9">
+                            <%= productD.discontinued %>
+                        </dd>
+                        <dt class="col-sm-3">
+                            Category Id :  
+                        </dt>
+                        <dd class="col-sm-9">
+                            <%= productD.categoryId %>
+                        </dd>
+                </div>
+                <div class="col-md-12 text-left"><button class="btn btn-primary" onclick="document.location='/productModel'">Cancel</button></div><br>
+                <div class="col-md-12 text-left"><button class="btn btn-info" onclick="document.location='/productModel/<%=productD._id%>/edit'">Edit</button></div><br>
+                <form action="/productModel/<%= productD._id %>?_method=DELETE" method="post">
+                    <div class="col-md-12 text-left">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </div>
+                </form>
+            </div><br>
+
+        </div>
+
+    </div>
+    </div>
+
 </body>
 
 </html>

@@ -38,26 +38,28 @@
                         <div class="row mb-3">
                             <label for="discontinued" class="col-sm-2 col-form-label">Discontinued</label>
                             <div class="col-sm-10" class="form-control">
-                                <input class="form-check-input" type="radio" name="discontinued" id="discontinued" value="yes">
-                                <label class="form-check-label" for="yes">
-                                  yes 
-                                </label>
-                                <input class="form-check-input" type="radio" name="discontinued" id="discontinued" value="no">
-                                <label class="form-check-label" for="no">
-                                  no
-                                </label>
+
+                                <select class="form-select" id="discontinued" name="discontinued" required>
+                                    
+                                    <option value="yes">yes</option>
+                                    <option  value="no">no</option>
+                                  </select>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="categoryId" class="col-sm-2 col-form-label">Category Id</label>
                             <div class="col-sm-10 " class="form-control "><input type="text " id="categoryId" name="categoryId"></div>
                         </div>
-                        <div class="col-md-12 text-center"> <button type="submit" class="btn btn-primary">Create</button> <button class="btn btn-danger" onclick=" document.location='/productModel' ">Cancel</button></div>
+                        <div class="col-md-12 text-left"> <button type="submit" class="btn btn-primary">Create</button></div><br>
+
                     </form>
+                    <div class="col-md-12 text-left">
+                        <button class="btn btn-danger" onclick=" document.location='/productModel' ">Cancel</button>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

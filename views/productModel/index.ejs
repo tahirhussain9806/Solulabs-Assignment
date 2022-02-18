@@ -20,10 +20,10 @@
                     <p><strong>Product Model :</strong></p>
                     <% for (let pmodel of productModel) { %>
                         <dl class="row">
-                            <dt class="col-sm-3">product Id :</dt>
+                            <!-- <dt class="col-sm-3">product Id :</dt>
                             <dd class="col-sm-9">
                                 <%=pmodel.productId %>
-                            </dd>
+                            </dd> -->
 
                             <dt class="col-sm-3">product Name :</dt>
                             <dd class="col-sm-9">
@@ -57,7 +57,7 @@
 
                         </dl>
                         <br>
-                        <button type="button" class="btn btn-info" onclick="document.location='/productModel/<%= pmodel.productId%>'">Product Model Detals</button>
+                        <button type="button" class="btn btn-info" onclick="document.location='/productModel/<%= pmodel.id%>'">Product Model Detals</button>
                         <hr>
                         <% } %>
                             <div class="col-md-12 text-center">
