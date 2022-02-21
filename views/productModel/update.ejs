@@ -25,6 +25,10 @@
                     <p><strong>Edit Product  Model :</strong></p>
                     <form action="/productModel/<%=productM._id%>?_method=PUT" method="POST">
                         <div class="row mb-3">
+                            <label for="productId" class="col-sm-2 col-form-label">Product Id</label>
+                            <div class="col-sm-10" class="form-control"><input type="text" id="productId" name="productId" value="<%=productM.productId%>"></div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="productName" class="col-sm-2 col-form-label">Product Name</label>
                             <div class="col-sm-10" class="form-control"><input type="text" id="productName" name="productName" value="<%=productM.productName%>"></div>
                         </div>

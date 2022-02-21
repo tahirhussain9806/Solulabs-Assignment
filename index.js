@@ -17,80 +17,85 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-// app.use(express.json())
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view  engine', 'ejs');
-
-
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
-
-
-
-// let productModel = [{
-//         productId: uuid(),
-//         productName: "pen",
-//         qtyPerUnit: 4,
-//         unitPrice: 5,
-//         unitInStock: 20,
-//         discontinued: "NO",
-//         categoryId: 123
-//     },
-//     {
-//         productId: uuid(),
-//         productName: "pencil",
-//         qtyPerUnit: 6,
-//         unitPrice: 3,
-//         unitInStock: 50,
-//         discontinued: "NO",
-//         categoryId: 523
-//     },
-//     {
-//         productId: uuid(),
-//         productName: "pen-pencil",
-//         qtyPerUnit: 10,
-//         unitPrice: 25,
-//         unitInStock: 200,
-//         discontinued: "NO",
-//         categoryId: 173
-//     }
-// ];
+// to display all product model(read all page).
 app.get('/productModel', async(req, res) => {
-    const productModel = await Product.find({})
-    console.log(productModel)
-    res.render('productModel/index.ejs', { productModel })
+    try {
+        const { categoryName } = req.query;
+        if (categoryName) {
+            const productModel = await Product.find({ categoryName: categoryName })
+            res.render('productModel/index.ejs', { productModel, categoryName })
+        } else {
+            const productModel = await Product.find({})
+            res.render('productModel/index.ejs', { productModel, categoryName: "All" })
+        }
+    } catch (err) {
+        res.send("Error" + err)
+    }
 });
+//  form to create new product model.
 app.get('/productModel/create', (req, res) => {
-    res.render('productModel/createProductModel.ejs')
+    try { res.render('productModel/createProductModel.ejs') } catch (err) {
+        res.send("Error" + err)
+    }
 });
+//create new form on server.
 app.post('/productModel', async(req, res) => {
-    const newProductModel = new Product(req.body)
-    await newProductModel.save()
-    res.redirect('/productModel')
+    try {
+        const newProductModel = new Product(req.body)
+        console.log(req.body)
+        await newProductModel.save()
+        res.redirect('/productModel')
+    } catch (err) {
+        res.send("Error" + err)
+    }
 });
-app.get('/productModel/:id', async(req, res) => {
-    const { id } = req.params;
-    const productD = await Product.findById(id)
-    console.log(productD)
-    res.render('productModel/productDetails.ejs', { productD })
+// form to read a specific product model. 
+app.get('/productModel/:id/read', async(req, res) => {
+    try {
+        const { id } = req.params;
+        const productD = await Product.findById(id)
+        console.log(productD)
+        res.render('productModel/productDetails.ejs', { productD })
+    } catch (err) {
+        res.send("Error" + err)
+    }
 });
-app.get('/productModel/:id/edit', async(req, res) => {
-    const { id } = req.params;
-    const productM = await Product.findById(id)
-    res.render('productModel/edit.ejs', { productM })
+//form to  update a specific product model.
+app.get('/productModel/:id/update', async(req, res) => {
+    try {
+        const { id } = req.params;
+        const productM = await Product.findById(id)
+        res.render('productModel/update.ejs', { productM })
+    } catch (err) {
+        res.send("Error" + err)
+    }
 });
+//form to update specific field on server.
 app.put('/productModel/:id', async(req, res) => {
-    const { id } = req.params;
-    const product = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, new: true })
-    res.redirect(`/productModel/${product._id}`)
+    try {
+        const { id } = req.params;
+        const product = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, new: true })
+        res.redirect(`/productModel`)
+    } catch (err) {
+        res.send("Error" + err)
+    }
+    // form to delete a specific product model
 })
-
-app.delete('/productModel/:id', async(req, res) => {
-    const { id } = req.params;
-    const deletedProduct = await Product.findByIdAndDelete(id)
-    res.redirect('/productModel')
-})
+app.delete('/productModel/:id/delete', async(req, res) => {
+        try {
+            const { id } = req.params;
+            const deletedProduct = await Product.findByIdAndDelete(id)
+            res.redirect('/productModel')
+        } catch (err) {
+            res.send("Error" + err)
+        }
+    })
+    //to bind and listen the connections on the specified host and port.
 const PORT = 5000;
 app.listen(PORT, () =>
     console.log("Listening on Port 5000")

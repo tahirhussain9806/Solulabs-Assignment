@@ -16,7 +16,7 @@
         <div class="container-md">
             <div class="card" style="width: 50rem;">
                 <div class="card-body">
-                    <p><strong>Product/Category Model Details :</strong></p>
+                    <p><strong>Product Details :</strong></p>
                     <dl class="row">
                         <dt class="col-sm-3">product Id :</dt>
                         <dd class="col-sm-9">
@@ -51,11 +51,29 @@
                         </dt>
                         <dd class="col-sm-9">
                             <%= productD.categoryId %>
+                        </dd><br>
+                    </dl>
+                    <p><strong>Category Details :</strong></p>
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            Category Id :  
+                        </dt>
+                        <dd class="col-sm-9">
+                            <%= productD.categoryId %>
                         </dd>
+                        <dt class="col-sm-3">
+                            Category Name :  
+                        </dt>
+                        <dd class="col-sm-9">
+                            <a href="/productModel?categoryName=<%=  productD.categoryName %> ">
+                                <%= productD.categoryName %>
+                            </a>
+                        </dd>
+                    </dl>
                 </div>
                 <div class="col-md-12 text-left"><button class="btn btn-primary" onclick="document.location='/productModel'">Cancel</button></div><br>
-                <div class="col-md-12 text-left"><button class="btn btn-info" onclick="document.location='/productModel/<%=productD._id%>/edit'">Edit</button></div><br>
-                <form action="/productModel/<%= productD._id %>?_method=DELETE" method="post">
+                <div class="col-md-12 text-left"><button class="btn btn-info" onclick="document.location='/productModel/<%=productD._id%>/update'">Edit</button></div><br>
+                <form action="/productModel/<%= productD._id %>/delete?_method=DELETE" method="post">
                     <div class="col-md-12 text-left">
                         <button class="btn btn-danger" type="submit">Delete</button>
                     </div>

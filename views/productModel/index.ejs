@@ -12,58 +12,78 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
         <div class="container-md">
 
             <div class="card" style="width: 50rem;">
-                <div class="card-body">
-                    <p><strong>Product Model :</strong></p>
-                    <% for (let pmodel of productModel) { %>
-                        <dl class="row">
-                            <!-- <dt class="col-sm-3">product Id :</dt>
-                            <dd class="col-sm-9">
-                                <%=pmodel.productId %>
-                            </dd> -->
+                <% if (categoryName !== "All")  { %>
+                    <p><u>All  Category Named - <%= categoryName %></u></p>
+                    <% } %>
+                        <div class="card-body">
+                            <p><strong>Product Model :</strong></p>
+                            <% for (let pmodel of productModel) { %>
+                                <dl class="row">
+                                    <dt class="col-sm-3">product Id :</dt>
+                                    <dd class="col-sm-9">
+                                        <%=pmodel.productId %>
+                                    </dd>
 
-                            <dt class="col-sm-3">product Name :</dt>
-                            <dd class="col-sm-9">
-                                <%= pmodel.productName %>
-                            </dd>
-                            <dt class="col-sm-3"> quantaty per unit :</dt>
-                            <dd class="col-sm-9">
-                                <%= pmodel.qtyPerUnit %>
-                            </dd>
+                                    <dt class="col-sm-3">product Name :</dt>
+                                    <dd class="col-sm-9">
+                                        <%= pmodel.productName %>
+                                    </dd>
+                                    <dt class="col-sm-3"> quantaty per unit :</dt>
+                                    <dd class="col-sm-9">
+                                        <%= pmodel.qtyPerUnit %>
+                                    </dd>
 
-                            <dt class="col-sm-3">Unit Price : </dt>
-                            <dd class="col-sm-9">
-                                <%= pmodel.unitPrice %>
-                            </dd>
+                                    <dt class="col-sm-3">Unit Price : </dt>
+                                    <dd class="col-sm-9">
+                                        <%= pmodel.unitPrice %>
+                                    </dd>
 
-                            <dt class="col-sm-3">Unit in Stock :</dt>
-                            <dd class="col-sm-9">
-                                <%= pmodel.unitInStock %>
-                            </dd>
+                                    <dt class="col-sm-3">Unit in Stock :</dt>
+                                    <dd class="col-sm-9">
+                                        <%= pmodel.unitInStock %>
+                                    </dd>
 
-                            <dt class="col-sm-3">Discontinued :   </dt>
-                            <dd class="col-sm-9">
-                                <%= pmodel.discontinued %>
-                            </dd>
-                            <dt class="col-sm-3">
+                                    <dt class="col-sm-3">Discontinued :   </dt>
+                                    <dd class="col-sm-9">
+                                        <%= pmodel.discontinued %>
+                                    </dd>
+                                    <dt class="col-sm-3">
                                 Category Id :  
                             </dt>
-                            <dd class="col-sm-9">
-                                <%= pmodel.categoryId %>
-                            </dd>
-
-                        </dl>
-                        <br>
-                        <button type="button" class="btn btn-info" onclick="document.location='/productModel/<%= pmodel.id%>'">Product Model Detals</button>
-                        <hr>
-                        <% } %>
-                            <div class="col-md-12 text-center">
-                                <button type="button" class="btn btn-primary" onclick="document.location='/productModel/create'">Create a new Product Model</button>
-                            </div>
-                </div>
+                                    <dd class="col-sm-9">
+                                        <%= pmodel.categoryId %>
+                                    </dd>
+                                </dl>
+                                <p><strong>Category Model :</strong></p>
+                                <dl class="row">
+                                    <dt class="col-sm-3">
+                                Category Id :  
+                            </dt>
+                                    <dd class="col-sm-9">
+                                        <%= pmodel.categoryId %>
+                                    </dd>
+                                    <dt class="col-sm-3">
+                                Category Name :  
+                            </dt>
+                                    <dd class="col-sm-9">
+                                        <%= pmodel.categoryName %>
+                                    </dd>
+                                </dl> <br>
+                                <button type="button" class="btn btn-info" onclick="document.location='/productModel/<%= pmodel.id%>/read'">Product Model Detals</button>
+                                <hr>
+                                <% } %>
+                                    <div class="col-md-12 text-center">
+                                        <button type="button" class="btn btn-primary" onclick="document.location='/productModel/create'">Create a new Product Model</button>
+                                        <% if (categoryName !== "All")  { %>
+                                            <button type="button" class="btn btn-danger" onclick="document.location='/productModel'">Back to Index</button>
+                                            <% } %>
+                                    </div>
+                        </div>
             </div>
         </div>
 

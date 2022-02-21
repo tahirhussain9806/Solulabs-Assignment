@@ -10,23 +10,14 @@ mongoose.connect('mongodb://localhost:27017/product', { useNewUrlParser: true, u
         console.log(err)
     })
 
-// const p = new Product({
-//     productName: "pen",
-//     qtyPerUnit: 4,
-//     unitPrice: 5,
-//     unitInStock: 20,
-//     discontinued: false,
-//     categoryId: 123
-// })
-// p.save()
-
 const productModel = [{
         productName: "pens",
         qtyPerUnit: 4,
         unitPrice: 5,
         unitInStock: 21,
         discontinued: "NO",
-        categoryId: 123
+        categoryId: 123,
+        categoryName: "testing"
     },
     {
 
@@ -35,7 +26,8 @@ const productModel = [{
         unitPrice: 3,
         unitInStock: 50,
         discontinued: "NO",
-        categoryId: 523
+        categoryId: 523,
+        categoryName: "testing001"
     }
 ]
 Product.insertMany(productModel)

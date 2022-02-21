@@ -2,9 +2,15 @@ const mongoose = require('mongoose')
 const { stringify } = require('uuid')
 
 const productSchema = new mongoose.Schema({
+    productId: {
+        type: String,
+        required: true,
+        unique: true
+    },
     productName: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     qtyPerUnit: {
         type: Number,
@@ -26,9 +32,13 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     categoryId: {
-        type: Number,
+        type: String,
         require: true,
-        min: 0
+        unique: true
+    },
+    categoryName: {
+        type: String,
+        require: true,
     },
 
 })
