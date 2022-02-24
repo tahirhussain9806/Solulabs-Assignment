@@ -4,8 +4,7 @@
 - Requirements
 - Implemented APIs
 - Installation
-- Configuration
-- API documentation
+
 
 ## INTRODUCTION
 
@@ -55,7 +54,7 @@ Required Functionality:
 
 1.  Create an entry in database.
 2.  Read/fetch given data from database.
-3.  Read/fetch all the data from the database.
+3.  Readall/fetch all the data from the database.
 4.  Update a data entry in the database.
 5.  Delete an entry in the database.
 
@@ -69,26 +68,5 @@ Required Functionality:
 
 4. And then api's can be tested on postman
 
-## CONFIGURATION
 
-NPM run / command to update the packages.
 
-## API DOCUMENTATION
-
-1. productModel :
-   This page shows all the created product model data.
-
-   example:
-
-   ```
-
-   ```
-
-2. productModel/create:
-   This page will create a new product/category model.
-
-3. productModel/read:
-   This page will display the paritcular record from the product table.
-
-4. productModel/delete:
-   Deletes one particular record from the product table.
