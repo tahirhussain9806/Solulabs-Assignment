@@ -3,9 +3,9 @@
 - Introduction
 - Requirements
 - Implemented APIs
-- Recommended modules
 - Installation
 - Configuration
+- API documentation
 
 ## INTRODUCTION
 
@@ -51,7 +51,7 @@ Required Functionality:
     Provide proper readme which includes steps to setup the code in any system, API documentation (Postman documentation link is preferred).
     Candidate needs to provide the github link and the candidate has to make his repository private.
 
-## IMPLEMENTED APIS
+## IMPLEMENTED API
 
 1.  Create an entry in database.
 2.  Read/fetch given data from database.
@@ -59,7 +59,36 @@ Required Functionality:
 4.  Update a data entry in the database.
 5.  Delete an entry in the database.
 
-## RECOMMENDED MODULES
+## INSTALLATION
 
-1. Install the NPM on the local machine following the [link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-2.
+1. To install dependencies type "npm install" on your terminal.
+
+2. MongoDb must be installed in the system.Type command "mongod" to launch the server on any terminal.
+
+3. Open a new terminal or VsCode terminal also can be used,Type command "npm run dev" to run the code.
+
+4. And then api's can be tested on postman
+
+## CONFIGURATION
+
+NPM run / command to update the packages.
+
+## API DOCUMENTATION
+
+1. productModel :
+   This page shows all the created product model data.
+
+   example:
+
+   ```
+
+   ```
+
+2. productModel/create:
+   This page will create a new product/category model.
+
+3. productModel/read:
+   This page will display the paritcular record from the product table.
+
+4. productModel/delete:
+   Deletes one particular record from the product table.
