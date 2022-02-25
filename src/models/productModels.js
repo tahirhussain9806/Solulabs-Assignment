@@ -12,22 +12,22 @@ const productModelSchema = new mongoose.Schema({
     },
     productName: {
         type: String,
-        required: [true], //, "Product Name is required"
+        required: [true,"Product Name is required"], 
 
     },
     qtyPerUnit: {
         type: Number,
-        required: [true], //, "Quantaty Per Unit is required"
+        required: [true,"Quantaty Per Unit is required"], 
         min: 0,
     },
     unitPrice: {
         type: Number,
-        required: [true], //, "Unit Price is required"
+        required: [true,"Unit Price is required"], 
         min: 0,
     },
     unitInStock: {
         type: Number,
-        required: [true], //, "Unit In  Stock in required"
+        required: [true,"Unit In  Stock in required"], 
         min: 0,
     },
     discontinued: {
